@@ -52,17 +52,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64952ad3a16715c45b7f6d13f5a45336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   control: {fileID: 11400000, guid: 66cc53a1c367e4240b322f861c9bfd19, type: 2}
+  playerCamera: {fileID: 7673019155363581613}
   otherPlayer: {fileID: 0}
-  tagFish: Fish1
-  tagFishUI: FishUI1
   speed: 5
   jumpForce: 11
   fish: 0
   meowAudio: {fileID: 2224992248542127151}
   position: {x: 0, y: 0}
-  meowRight: {fileID: 21300000, guid: 571f5b6d80289654b8726dcc0fcd5b54, type: 3}
-  meowLeft: {fileID: 21300000, guid: 458f51256f01fd344ba282f7a2038719, type: 3}
 --- !u!212 &715079304331571382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -417,7 +416,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3702606422566606841}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}

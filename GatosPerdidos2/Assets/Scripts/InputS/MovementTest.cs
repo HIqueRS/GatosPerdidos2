@@ -10,15 +10,18 @@ public class MovementTest : NetworkBehaviour
 {
     [SerializeField]
     private InputSchema control;
+
+    [SerializeField]
+    private Camera playerCamera;
     
     public GameObject otherPlayer;
     
     private GameObject otherMeow;
 
-    [SerializeField]
-    private string tagFish;
-    [SerializeField]
-    private string tagFishUI;
+   // [SerializeField]
+    //private string tagFish;
+   // [SerializeField]
+    //private string tagFishUI;
 
     [SerializeField]
     private float speed;
@@ -46,8 +49,8 @@ public class MovementTest : NetworkBehaviour
     private SpriteRenderer sprite;
 
 
-    public Sprite meowRight;
-    public Sprite meowLeft;
+    //public Sprite meowRight;
+    //public Sprite meowLeft;
 
     
     // Start is called before the first frame update
@@ -60,6 +63,13 @@ public class MovementTest : NetworkBehaviour
 
        animator = GetComponent<Animator>();
        sprite = GetComponent<SpriteRenderer>();
+
+        
+        if (isLocalPlayer)
+        {
+            Debug.Log(netId);
+            playerCamera.enabled = true;
+        }
     }
 
     // Update is called once per frame
@@ -67,7 +77,8 @@ public class MovementTest : NetworkBehaviour
     {
         if(isLocalPlayer)
         {
-            InputsUpdate();
+              InputsUpdate();
+                
         }
           
     }
