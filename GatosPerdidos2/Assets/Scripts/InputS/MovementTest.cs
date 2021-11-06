@@ -4,12 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Mirror;
 
-public class MovementTest : MonoBehaviour
+public class MovementTest : NetworkBehaviour
 {
     [SerializeField]
     private InputSchema control;
-   
     
     public GameObject otherPlayer;
     
@@ -49,10 +49,6 @@ public class MovementTest : MonoBehaviour
     public Sprite meowRight;
     public Sprite meowLeft;
 
-   
-
-
-
     
     // Start is called before the first frame update
     void Start()
@@ -62,12 +58,6 @@ public class MovementTest : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-
-
-
-       
-
-
        animator = GetComponent<Animator>();
        sprite = GetComponent<SpriteRenderer>();
     }
@@ -75,7 +65,11 @@ public class MovementTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InputsUpdate();
+        if(isLocalPlayer)
+        {
+            InputsUpdate();
+        }
+          
     }
 
     private void InputsUpdate()
