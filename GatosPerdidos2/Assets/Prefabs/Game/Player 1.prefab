@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2224992248542127151}
   - component: {fileID: -3559336650882785722}
   - component: {fileID: 1455928299407274099}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -62,6 +62,7 @@ MonoBehaviour:
   fish: 0
   meowAudio: {fileID: 2224992248542127151}
   position: {x: 0, y: 0}
+  cameraConfig: {fileID: 7713525792269459437}
 --- !u!212 &715079304331571382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -331,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715079304868444965}
   - component: {fileID: 715079304868444964}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,6 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7611731787027852015}
+  - component: {fileID: 7713525792269459437}
   - component: {fileID: 7673019155363581613}
   m_Layer: 0
   m_Name: Player Camera
@@ -409,6 +411,22 @@ Transform:
   m_Father: {fileID: 715079304331571381}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7713525792269459437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702606422566606841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6db6fd2011d0a441a825bedd5338354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 7673019155363581613}
+  masks:
+  - Cat1
+  - Cat2
 --- !u!20 &7673019155363581613
 Camera:
   m_ObjectHideFlags: 0
