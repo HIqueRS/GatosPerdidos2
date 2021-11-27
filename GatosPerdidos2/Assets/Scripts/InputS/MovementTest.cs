@@ -124,11 +124,27 @@ public class MovementTest : NetworkBehaviour
          
         if(dir < 0)
         {
-            sprite.flipX = true;
+            if(PlayerID == 1)
+            {
+                sprite.flipX = true;
+            }
+            else
+            {
+                sprite.flipX = false;
+            }
+            
         }
         else if(dir > 0)
         {
-            sprite.flipX = false;
+            if(PlayerID == 1)
+            {
+                sprite.flipX = false;
+            }
+            else
+            {
+                sprite.flipX = true;
+            }
+            
         }
 
         if(control.IsJumping() && isGrounded)
