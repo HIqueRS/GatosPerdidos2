@@ -97,13 +97,19 @@ public class MovementTest : NetworkBehaviour
                 cameraConfig.NoCatMask(1);
                 this.gameObject.layer = LayerMask.NameToLayer("Cat1");
                 PlayerID = 1;
-                    //trocar player mask
+
+                animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("RealArt/Cats/StarCat/Player1");
+
+
+                //trocar player mask
                 break;
             case 2: 
                 cameraConfig.NoCatMask(0);
                 this.gameObject.layer = LayerMask.NameToLayer("Cat2");
                 cameraConfig.IsPlayerTwo();//change rotation camera
                 PlayerID = -1;
+
+                animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("RealArt/Cats/MoonCat/Player2");
                 // trocar player mask
                 break;
         }
