@@ -201,7 +201,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 7
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   masks:
   - Cat1
   - Cat2
+  isTwo: 0
 --- !u!20 &7673019155363581613
 Camera:
   m_ObjectHideFlags: 0
