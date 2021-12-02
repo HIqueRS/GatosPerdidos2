@@ -53,6 +53,9 @@ public class MovementTest : NetworkBehaviour
 
     private int PlayerID;
 
+    private string fishTag;
+
+    private GameManager gameManager;
 
     //public Sprite meowRight;
     //public Sprite meowLeft;
@@ -61,6 +64,10 @@ public class MovementTest : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fish = 0;
+
+        fishTag = "Fish1";
+
         isGrounded = true;
         jumped = false;
 
@@ -69,9 +76,11 @@ public class MovementTest : NetworkBehaviour
        animator = GetComponent<Animator>();
        sprite = GetComponent<SpriteRenderer>();
 
-       InitiateCamera();
+      
 
+        gameManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
 
+        InitiateCamera();
     }
 
 
@@ -100,6 +109,9 @@ public class MovementTest : NetworkBehaviour
 
                 animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("RealArt/Cats/StarCat/Player1");
 
+                fishTag = "Fish1";
+
+                gameManager.gato1 = this.gameObject;
 
                 //trocar player mask
                 break;
@@ -110,6 +122,10 @@ public class MovementTest : NetworkBehaviour
                 PlayerID = -1;
 
                 animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("RealArt/Cats/MoonCat/Player2");
+
+                fishTag = "Fish2";
+
+                gameManager.gato2 = this.gameObject;
                 // trocar player mask
                 break;
         }
@@ -181,8 +197,10 @@ public class MovementTest : NetworkBehaviour
 
         if(meowed)
         {
-
+            //can win?
+            
             meowAudio.Play();
+            gameManager.TryWin();
         }
     }
 
@@ -225,7 +243,15 @@ public class MovementTest : NetworkBehaviour
             isGrounded = true;
         }
         
+        if(collision.gameObject.CompareTag(fishTag))
+        {
+            fish += 1;
 
+            //preciso chamar o gamemanager
+            gameManager.ChangePexe(fish, PlayerID);
+
+            Destroy(collision.gameObject);
+        }
         
     }
 
@@ -235,7 +261,6 @@ public class MovementTest : NetworkBehaviour
         {
             isGrounded = false;
         }
-
        
     }
 

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Room
+  - Fish1
+  - Fish2
+  - Manager
   layers:
   - Default
   - TransparentFX
