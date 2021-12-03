@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2224992248542127151}
   - component: {fileID: -3559336650882785722}
   - component: {fileID: 1455928299407274099}
+  - component: {fileID: 6066838184138837468}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -322,6 +323,14 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!81 &6066838184138837468
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715079304331571383}
+  m_Enabled: 1
 --- !u!1 &715079304868444966
 GameObject:
   m_ObjectHideFlags: 0

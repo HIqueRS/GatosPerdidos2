@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
 
     public GameObject gato1;
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int[] pexe;
 
     public float distancia;
+
+    public GameObject fim;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +29,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void ChangePexe(int f,int id)
+    public void ChangePexe(int f, int id)
     {
         switch (id)
         {
@@ -40,15 +43,18 @@ public class GameManager : MonoBehaviour
                 pexe[0] = f;
                 break;
         }
-        
+
     }
 
     public void TryWin()
     {
+        
+        
+
         Debug.Log(pexe[0] + " " + pexe[1]);
-        if(pexe[0] >= 5 && pexe[1] >= 5)
+        if (pexe[0] >= 5 && pexe[1] >= 5)
         {
-            if(gato1 && gato2)
+            if (gato1 && gato2)
             {
                 float diferenca = Vector3.Distance(gato1.transform.position, gato2.transform.position);
 
@@ -57,10 +63,33 @@ public class GameManager : MonoBehaviour
                 if (diferenca < distancia)
                 {
                     Debug.Log("acabe");
+
+
+                    fim.SetActive(true);
+                    //mas tecinicamente o rcp so pode ser chamado pelo server e o cmd pelo client
+                    if (isServer)
+                    {
+                        RpcFim();
+                    }
+                    else
+                    {
+                        CmdFim();
+                    }
                 }
             }
-           
+
         }
     }
 
+    [Command(requiresAuthority = false)]
+    void CmdFim(NetworkConnectionToClient sender = null)
+    {
+        fim.SetActive(true);
+    }
+
+    [ClientRpc(includeOwner = false)]
+    public void RpcFim()
+    {
+        fim.SetActive(true);
+    }
 }
